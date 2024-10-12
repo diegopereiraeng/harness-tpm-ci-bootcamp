@@ -44,6 +44,11 @@ public class ProductService {
         return false;
     }
 
+    public void updateProductPrice(String productId, double newPrice) {
+        Optional<Product> product = getProductById(productId);
+        product.ifPresent(p -> p.setPrice(newPrice));
+    }
+
     public boolean deleteProduct(String productId) {
         return products.removeIf(product -> product.getId().equals(productId));
     }
