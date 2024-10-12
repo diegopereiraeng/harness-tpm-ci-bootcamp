@@ -38,7 +38,8 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<String> createProduct(@RequestBody Product product) {
         productService.addProduct(product);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Product created successfully");
+        String result = "Product created successfully"
+        return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
     @PutMapping("/{productId}")
