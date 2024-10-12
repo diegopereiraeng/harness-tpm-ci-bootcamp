@@ -38,14 +38,14 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<String> createProduct(@RequestBody Product product) {
         productService.addProduct(product);
-        String result = "Product created successfully"
+        String result = "Product created successfully";
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
     @PutMapping("/{productId}")
     public ResponseEntity<String> updateProduct(@PathVariable String productId, @RequestBody Product updatedProduct) {
         boolean isUpdated = productService.updateProduct(productId, updatedProduct);
-        String result = "Product updated successfully - "+isUpdated
+        String result = "Product updated successfully - "+isUpdated;
         if (isUpdated) {
             return ResponseEntity.ok(result);
         } else {
