@@ -118,4 +118,13 @@ public class ProductServiceTest {
         boolean isDeleted = productService.deleteProduct("999");
         assertFalse(isDeleted);
     }
+
+    @Test
+    public void testUpdateProductPrice() {
+        productService.updateProductPrice("1", 25.0);
+        Optional<Product> updatedProduct = productService.getProductById("1");
+        assertTrue(updatedProduct.isPresent());
+        assertEquals(25.0, updatedProduct.get().getPrice());
+    }
+
 }
