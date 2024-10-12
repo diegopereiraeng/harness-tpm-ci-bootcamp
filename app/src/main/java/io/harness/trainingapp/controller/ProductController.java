@@ -30,7 +30,7 @@ public class ProductController {
     @GetMapping("/{productId}")
     public ResponseEntity<Product> getProductById(@PathVariable String productId) {
         Optional<Product> product = productService.getProductById(productId);
-        System.out.println("Getting product id: "+productId);
+        // System.out.println("Getting product id: "+productId);
         return product.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }
